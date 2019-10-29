@@ -127,7 +127,8 @@ type Config struct {
 	StorageAccount                    string             `mapstructure:"storage_account"`
 	TempComputeName                   string             `mapstructure:"temp_compute_name"`
 	TempResourceGroupName             string             `mapstructure:"temp_resource_group_name"`
-	BuildResourceGroupName            string             `mapstructure:"build_resource_group_name"`
+	BuildResourceGroupName            string             `mapstructure:"build_resource_group_name "`
+	Identity                          map[string]*string `mapstructure:"identity"`
 	storageAccountBlobEndpoint        string
 	PrivateVirtualNetworkWithPublicIp bool   `mapstructure:"private_virtual_network_with_public_ip"`
 	VirtualNetworkName                string `mapstructure:"virtual_network_name"`

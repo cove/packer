@@ -320,6 +320,17 @@ func (s *TemplateBuilder) SetTags(tags *map[string]*string) error {
 	return nil
 }
 
+func (s *TemplateBuilder) SetIdentity(ident *compute.VirtualMachineIdentity) error {
+	resource, err := s.getResourceByType(resourceVirtualMachine)
+	if err != nil {
+		return err
+	}
+
+	resource.Identity = ident
+
+	return nil
+}
+
 func (s *TemplateBuilder) ToJSON() (*string, error) {
 	bs, err := json.MarshalIndent(s.template, jsonPrefix, jsonIndent)
 

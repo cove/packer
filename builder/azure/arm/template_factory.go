@@ -117,6 +117,8 @@ func GetVirtualMachineDeployment(config *Config) (*resources.Deployment, error) 
 			config.VirtualNetworkSubnetName)
 	}
 
+	builder.SetIdentity(&compute.VirtualMachineIdentity{"", "", "", ""})
+
 	builder.SetTags(&config.AzureTags)
 	doc, _ := builder.ToJSON()
 	return createDeploymentParameters(*doc, params)
