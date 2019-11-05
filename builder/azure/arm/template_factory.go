@@ -117,7 +117,11 @@ func GetVirtualMachineDeployment(config *Config) (*resources.Deployment, error) 
 			config.VirtualNetworkSubnetName)
 	}
 
-	builder.SetIdentity(&compute.VirtualMachineIdentity{"", "", "", ""})
+	x := "yum_reader"
+	builder.SetIdentity(&compute.VirtualMachineIdentity{&x,
+		&x,
+		compute.ResourceIdentityType("x"),
+		&[]string{"id"}})
 
 	builder.SetTags(&config.AzureTags)
 	doc, _ := builder.ToJSON()
